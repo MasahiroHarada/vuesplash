@@ -254,6 +254,20 @@ img {
   margin: 0;
 }
 
+.photo-form {
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  max-height: 75vh;
+  max-width: 600px;
+  overflow: scroll;
+  padding: 1.5rem;
+  position: absolute;
+  right: 2%;
+  top: 3.5rem;
+  width: 90%;
+}
+
 .button {
   border: 1px solid #dedede;
   border-radius: 0.25rem;
@@ -505,5 +519,14 @@ img {
     -webkit-transform: scale(0.9);
             transform: scale(0.9);
   }
+}
+
+.message {
+  background: #D7F9EE;
+  border: 1px solid #41e2b2;
+  border-radius: 0.25rem;
+  color: #117355;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
 }
 

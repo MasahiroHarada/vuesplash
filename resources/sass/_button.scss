@@ -1,0 +1,68 @@
+.button {
+  border: 1px solid $grey-3;
+  border-radius: .25rem;
+  color: $grey-2;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  outline: none;
+  padding: .5rem .75rem;
+  text-decoration: none;
+  transition:
+    border-color 300ms ease-in-out,
+    color 300ms ease-in-out;
+
+  &:hover {
+    border-color: $grey-1;
+    color: inherit;
+  }
+
+  .icon {
+    margin-right: .5em;
+  }
+
+  &--link {
+    border: 0;
+  }
+
+  &--inverse {
+    background: $text-color;
+    border-color: $text-color;
+    color: #fff;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover {
+      background: $text-color;
+      color: #fff;
+      opacity: .8;
+    }
+  }
+
+  &--fluid {
+    width: 100%;
+  }
+
+  &--like {
+    .icon {
+      color: $red;
+    }
+  }
+
+  &--liked {
+    background: $red;
+    border-color: $red;
+    color: #fff;
+
+    .icon {
+      color: #fff;
+    }
+
+    &:hover {
+      border-color: $red;
+      color: #fff;
+      opacity: .8;
+    }
+  }
+}

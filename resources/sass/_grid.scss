@@ -1,0 +1,9 @@
+.grid {
+  display: grid;
+  grid-gap: 0 2%;
+  grid-template-columns: repeat(auto-fit, 32%);
+
+  &__item {
+    margin-bottom: 2rem;
+  }
+}

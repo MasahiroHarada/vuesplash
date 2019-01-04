@@ -1,0 +1,60 @@
+.photo-detail {
+  $component: &;
+  display: flex;
+  justify-content: space-between;
+
+  &--column {
+    flex-direction: column;
+
+    #{$component}__pane {
+      width: 100%;
+    }
+
+    #{$component}__image {
+      cursor: zoom-out;
+    }
+  }
+
+  &__pane {
+    width: 49%;
+  }
+
+  &__image {
+    cursor: zoom-in;
+    margin-bottom: 1.5rem;
+
+    figcaption {
+      margin-top: .5rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+
+    .icon {
+      margin-right: .5em;
+    }
+  }
+
+  &__comments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__commentItem {
+    border-bottom: 1px solid $grey-3;
+    margin-bottom: 1.5rem;
+    padding: 0 0 1.5rem 0;
+  }
+
+  &__commentBody {
+    margin: 0 0 1rem 0;
+  }
+
+  &__commentInfo {
+    color: $grey-2;
+    margin: 0;
+  }
+}

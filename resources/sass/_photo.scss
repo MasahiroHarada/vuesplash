@@ -1,0 +1,117 @@
+.photo {
+  $component: &;
+  position: relative;
+
+  &:hover {
+    #{$component}__overlay {
+      visibility: visible;
+    }
+  }
+
+  &:nth-child(4n+1) {
+    #{$component}__wrapper {
+      background: #DBBCD5;
+    }
+  }
+
+  &:nth-child(4n+2) {
+    #{$component}__wrapper {
+      background: #DBDBBC;
+    }
+  }
+
+  &:nth-child(4n+3) {
+    #{$component}__wrapper {
+      background: #BCDBC8;
+    }
+  }
+
+  &:nth-child(4n) {
+    #{$component}__wrapper {
+      background: #BCC8DB;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    padding-top: 75%;
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    &--landscape {
+      max-height: 100%;
+      max-width: none;
+      opacity: 1;
+    }
+
+    &--portrait {
+      max-width: 100%;
+      opacity: 1;
+    }
+  }
+
+  &__overlay {
+    background: rgba(0, 0, 0, .3);
+    bottom: 0;
+    color: #fff;
+    cursor: zoom-in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 0;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+    visibility: hidden;
+  }
+
+  &__controls {
+    text-align: right;
+  }
+
+  &__action {
+    background: #fff;
+    border: 0;
+    border-radius: .25rem;
+    color: $text-color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1;
+    margin-left: .25rem;
+    opacity: .8;
+    outline: none;
+    padding: .5em .75em;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--like {
+      .icon {
+        color: $red;
+        margin-right: .5em;
+      }
+    }
+
+    &--liked {
+      background: $red;
+      color: #fff;
+
+      .icon {
+        color: #fff;
+      }
+    }
+  }
+}

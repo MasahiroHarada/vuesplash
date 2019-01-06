@@ -767,6 +767,12 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "navbar__menu" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("span", { staticClass: "navbar__item" }, [
+          _vm._v("\n      username\n    ")
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "navbar__item" },
@@ -784,7 +790,19 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "navbar__item" }, [
+      _c("button", { staticClass: "button" }, [
+        _c("i", { staticClass: "icon ion-md-add" }),
+        _vm._v("\n        Submit a photo\n      ")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

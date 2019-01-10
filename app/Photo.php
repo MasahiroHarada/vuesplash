@@ -13,15 +13,14 @@ class Photo extends Model
     /** IDの桁数 */
     const ID_LENGTH = 12;
 
-    /** JSONに含める属性 */
+    /** JSONに含めるアクセサ */
     protected $appends = [
         'url',
     ];
 
-    /** JSONに含めない属性 */
-    protected $hidden = [
-        'user_id', 'filename',
-        self::CREATED_AT, self::UPDATED_AT,
+    /** JSONに含める属性 */
+    protected $visible = [
+        'id', 'owner', 'url',
     ];
 
     public function __construct(array $attributes = [])

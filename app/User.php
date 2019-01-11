@@ -19,14 +19,9 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'id', 'email', 'email_verified_at', 'password', 'remember_token',
-        self::CREATED_AT, self::UPDATED_AT,
+    /** JSONに含める属性 */
+    protected $visible = [
+        'name',
     ];
 
     /**

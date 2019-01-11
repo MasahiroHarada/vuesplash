@@ -13,15 +13,14 @@ class Photo extends Model
     /** IDの桁数 */
     const ID_LENGTH = 12;
 
-    /** JSONに含める属性 */
+    /** JSONに含めるアクセサ */
     protected $appends = [
         'url',
     ];
 
-    /** JSONに含めない属性 */
-    protected $hidden = [
-        'user_id', 'filename',
-        self::CREATED_AT, self::UPDATED_AT,
+    /** JSONに含める属性 */
+    protected $visible = [
+        'id', 'owner', 'url', 'comments',
     ];
 
     public function __construct(array $attributes = [])
@@ -79,5 +78,14 @@ class Photo extends Model
     public function owner()
     {
         return $this->belongsTo('App\User', 'user_id', 'id', 'users');
+    }
+
+    /**
+     * リレーションシップ - commentsテーブル
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment')->orderBy('id', 'desc');
     }
 }

@@ -1,6 +1,13 @@
 <template>
-  <div v-if="photo" class="photo-detail">
-    <figure class="photo-detail__pane photo-detail__image">
+  <div
+    v-if="photo"
+    class="photo-detail"
+    :class="{ 'photo-detail--column': fullWidth }"
+  >
+    <figure
+      class="photo-detail__pane photo-detail__image"
+      @click="fullWidth = ! fullWidth"
+    >
       <img :src="photo.url" alt="">
       <figcaption>Posted by {{ photo.owner.name }}</figcaption>
     </figure>
@@ -67,6 +74,7 @@ export default {
   data () {
     return {
       photo: null,
+      fullWidth: false,
       commentContent: '',
       commentErrors: null
     }

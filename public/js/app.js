@@ -2598,6 +2598,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2609,6 +2616,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       photo: null,
+      fullWidth: false,
       commentContent: '',
       commentErrors: null
     };
@@ -5242,142 +5250,158 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.photo
-    ? _c("div", { staticClass: "photo-detail" }, [
-        _c(
-          "figure",
-          { staticClass: "photo-detail__pane photo-detail__image" },
-          [
-            _c("img", { attrs: { src: _vm.photo.url, alt: "" } }),
-            _vm._v(" "),
-            _c("figcaption", [
-              _vm._v("Posted by " + _vm._s(_vm.photo.owner.name))
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "photo-detail__pane" }, [
+    ? _c(
+        "div",
+        {
+          staticClass: "photo-detail",
+          class: { "photo-detail--column": _vm.fullWidth }
+        },
+        [
           _c(
-            "button",
+            "figure",
             {
-              staticClass: "button button--like",
-              class: { "button--liked": _vm.photo.liked_by_user },
-              attrs: { title: "Like photo" },
-              on: { click: _vm.onLikeClick }
-            },
-            [
-              _c("i", { staticClass: "icon ion-md-heart" }),
-              _vm._v(_vm._s(_vm.photo.likes_count) + "\n    ")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "button",
-              attrs: {
-                href: _vm.photo.url,
-                download: "",
-                title: "Download photo"
+              staticClass: "photo-detail__pane photo-detail__image",
+              on: {
+                click: function($event) {
+                  _vm.fullWidth = !_vm.fullWidth
+                }
               }
             },
             [
-              _c("i", { staticClass: "icon ion-md-arrow-round-down" }),
-              _vm._v("Download\n    ")
+              _c("img", { attrs: { src: _vm.photo.url, alt: "" } }),
+              _vm._v(" "),
+              _c("figcaption", [
+                _vm._v("Posted by " + _vm._s(_vm.photo.owner.name))
+              ])
             ]
           ),
           _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _vm.photo.comments.length > 0
-            ? _c(
-                "ul",
-                { staticClass: "photo-detail__comments" },
-                _vm._l(_vm.photo.comments, function(comment) {
-                  return _c(
-                    "li",
-                    {
-                      key: comment.content,
-                      staticClass: "photo-detail__commentItem"
-                    },
-                    [
-                      _c("p", { staticClass: "photo-detail__commentBody" }, [
-                        _vm._v(
-                          "\n          " +
-                            _vm._s(comment.content) +
-                            "\n        "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "photo-detail__commentInfo" }, [
-                        _vm._v(
-                          "\n          " +
-                            _vm._s(comment.author.name) +
-                            "\n        "
-                        )
-                      ])
-                    ]
-                  )
-                }),
-                0
-              )
-            : _c("p", [_vm._v("No comments yet.")]),
-          _vm._v(" "),
-          _vm.isLogin
-            ? _c(
-                "form",
-                {
-                  staticClass: "form",
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.addComment($event)
-                    }
-                  }
-                },
-                [
-                  _vm.commentErrors
-                    ? _c("div", { staticClass: "errors" }, [
-                        _vm.commentErrors.content
-                          ? _c(
-                              "ul",
-                              _vm._l(_vm.commentErrors.content, function(msg) {
-                                return _c("li", { key: msg }, [
-                                  _vm._v(_vm._s(msg))
-                                ])
-                              }),
-                              0
-                            )
-                          : _vm._e()
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
+          _c("div", { staticClass: "photo-detail__pane" }, [
+            _c(
+              "button",
+              {
+                staticClass: "button button--like",
+                class: { "button--liked": _vm.photo.liked_by_user },
+                attrs: { title: "Like photo" },
+                on: { click: _vm.onLikeClick }
+              },
+              [
+                _c("i", { staticClass: "icon ion-md-heart" }),
+                _vm._v(_vm._s(_vm.photo.likes_count) + "\n    ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "button",
+                attrs: {
+                  href: _vm.photo.url,
+                  download: "",
+                  title: "Download photo"
+                }
+              },
+              [
+                _c("i", { staticClass: "icon ion-md-arrow-round-down" }),
+                _vm._v("Download\n    ")
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm.photo.comments.length > 0
+              ? _c(
+                  "ul",
+                  { staticClass: "photo-detail__comments" },
+                  _vm._l(_vm.photo.comments, function(comment) {
+                    return _c(
+                      "li",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.commentContent,
-                        expression: "commentContent"
-                      }
-                    ],
-                    staticClass: "form__item",
-                    domProps: { value: _vm.commentContent },
+                        key: comment.content,
+                        staticClass: "photo-detail__commentItem"
+                      },
+                      [
+                        _c("p", { staticClass: "photo-detail__commentBody" }, [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(comment.content) +
+                              "\n        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "photo-detail__commentInfo" }, [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(comment.author.name) +
+                              "\n        "
+                          )
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              : _c("p", [_vm._v("No comments yet.")]),
+            _vm._v(" "),
+            _vm.isLogin
+              ? _c(
+                  "form",
+                  {
+                    staticClass: "form",
                     on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.commentContent = $event.target.value
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.addComment($event)
                       }
                     }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]
-              )
-            : _vm._e()
-        ])
-      ])
+                  },
+                  [
+                    _vm.commentErrors
+                      ? _c("div", { staticClass: "errors" }, [
+                          _vm.commentErrors.content
+                            ? _c(
+                                "ul",
+                                _vm._l(_vm.commentErrors.content, function(
+                                  msg
+                                ) {
+                                  return _c("li", { key: msg }, [
+                                    _vm._v(_vm._s(msg))
+                                  ])
+                                }),
+                                0
+                              )
+                            : _vm._e()
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.commentContent,
+                          expression: "commentContent"
+                        }
+                      ],
+                      staticClass: "form__item",
+                      domProps: { value: _vm.commentContent },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.commentContent = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
+                )
+              : _vm._e()
+          ])
+        ]
+      )
     : _vm._e()
 }
 var staticRenderFns = [

@@ -4278,8 +4278,12 @@ var render = function() {
                 staticClass: "photo__action",
                 attrs: {
                   title: "Download photo",
-                  download: "",
-                  href: _vm.item.url
+                  href: "/photos/" + _vm.item.id + "/download"
+                },
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                  }
                 }
               },
               [_c("i", { staticClass: "icon ion-md-arrow-round-down" })]

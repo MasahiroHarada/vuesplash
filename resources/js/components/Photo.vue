@@ -25,8 +25,8 @@
         <a
           class="photo__action"
           title="Download photo"
-          download
-          :href="item.url"
+          @click.stop
+          :href="`/photos/${item.id}/download`"
         >
           <i class="icon ion-md-arrow-round-down"></i>
         </a>

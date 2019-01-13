@@ -3,19 +3,21 @@
 namespace Tests\Feature;
 
 use App\Photo;
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AddCommentApiTest extends TestCase
 {
-    use RefreshDatabase, AuthTest;
+    use RefreshDatabase;
 
     public function setUp()
     {
         parent::setUp();
 
-        $this->createUser();
+        // テストユーザー作成
+        $this->user = factory(User::class)->create();
     }
 
     /**

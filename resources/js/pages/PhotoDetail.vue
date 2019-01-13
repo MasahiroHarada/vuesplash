@@ -16,8 +16,7 @@
         <i class="icon ion-md-heart"></i>12
       </button>
       <a
-        :href="photo.url"
-        download
+        :href="`/photos/${photo.id}/download`"
         class="button"
         title="Download photo"
       >

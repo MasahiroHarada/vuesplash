@@ -2591,7 +2591,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -4513,8 +4512,12 @@ var render = function() {
                 staticClass: "photo__action",
                 attrs: {
                   title: "Download photo",
-                  download: "",
-                  href: _vm.item.url
+                  href: "/photos/" + _vm.item.id + "/download"
+                },
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                  }
                 }
               },
               [_c("i", { staticClass: "icon ion-md-arrow-round-down" })]
@@ -5060,8 +5063,7 @@ var render = function() {
               {
                 staticClass: "button",
                 attrs: {
-                  href: _vm.photo.url,
-                  download: "",
+                  href: "/photos/" + _vm.photo.id + "/download",
                   title: "Download photo"
                 }
               },

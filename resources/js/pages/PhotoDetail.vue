@@ -21,8 +21,7 @@
         <i class="icon ion-md-heart"></i>{{ photo.likes_count }}
       </button>
       <a
-        :href="photo.url"
-        download
+        :href="`/photos/${photo.id}/download`"
         class="button"
         title="Download photo"
       >

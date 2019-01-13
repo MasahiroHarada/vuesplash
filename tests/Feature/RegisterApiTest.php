@@ -9,35 +9,24 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RegisterApiTest extends TestCase
 {
-    use RefreshDatabase, AuthTest;
+    use RefreshDatabase;
 
     /**
      * @test
      */
-    public function should_新しいユーザーを作成する()
+    public function should_新しいユーザーを作成して返却する()
     {
-        $data = $this->userData();
-        $data['password_confirmation'] = $data['password'];
+        $data = [
+            'name' => 'vuesplash user',
+            'email' => 'dummy@email.com',
+            'password' => 'test1234',
+            'password_confirmation' => 'test1234',
+        ];
 
         $response = $this->json('POST', route('register'), $data);
-
-        $response->assertStatus(201);
 
         $user = User::first();
         $this->assertEquals($data['name'], $user->name);
-    }
-
-    /**
-     * @test
-     */
-    public function should_作成したユーザーを返却する()
-    {
-        $data = $this->userData();
-        $data['password_confirmation'] = $data['password'];
-
-        $response = $this->json('POST', route('register'), $data);
-
-        $user = User::first();
 
         $response
             ->assertStatus(201)

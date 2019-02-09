@@ -2051,7 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
       type: Number,
       required: true
     },
-    total: {
+    lastPage: {
       type: Number,
       required: true
     }
@@ -2061,7 +2061,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.currentPage === 1;
     },
     isLastPage: function isLastPage() {
-      return this.currentPage === this.total;
+      return this.currentPage === this.lastPage;
     }
   }
 });
@@ -2561,7 +2561,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       photos: [],
       currentPage: 0,
-      total: 0
+      lastPage: 0
     };
   },
   methods: {
@@ -2591,7 +2591,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 6:
                 this.photos = response.data.data;
                 this.currentPage = response.data.current_page;
-                this.total = response.data.total;
+                this.lastPage = response.data.last_page;
 
               case 9:
               case "end":
@@ -4836,7 +4836,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("Pagination", {
-        attrs: { "current-page": _vm.currentPage, total: _vm.total }
+        attrs: { "current-page": _vm.currentPage, "last-page": _vm.lastPage }
       })
     ],
     1

@@ -20,7 +20,7 @@ export default {
       type: Number,
       required: true
     },
-    total: {
+    lastPage: {
       type: Number,
       required: true
     }
@@ -30,7 +30,7 @@ export default {
       return this.currentPage === 1
     },
     isLastPage () {
-      return this.currentPage === this.total
+      return this.currentPage === this.lastPage
     }
   }
 }
